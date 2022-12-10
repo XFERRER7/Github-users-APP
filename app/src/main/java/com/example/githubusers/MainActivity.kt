@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                     rvUsers?.adapter = adapterUser
 
 
+
+
                 }
 
                 override fun onFailure(call: Call<Users>, t: Throwable) {
