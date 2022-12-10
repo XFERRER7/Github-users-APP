@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GithubUsers</string>
+    <string name="digite_o_nome">Digite o nome</string>
 </resources>

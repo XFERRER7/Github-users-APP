@@ -8,11 +8,55 @@
     android:background="@color/white"
     >
 
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista de usuários"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_desc"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="30dp"
+        >
+
+        <EditText
+            android:id="@+id/ed_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:hint="@string/digite_o_nome"
+            android:background="@drawable/edittext_bottom_line"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:textColorHint="@color/gray"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="Pesquisar"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_users"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_search"
+        android:layout_marginTop="21dp" />
 
 
 </RelativeLayout>

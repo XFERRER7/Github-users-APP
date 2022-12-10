@@ -2,6 +2,8 @@ package com.example.githubusers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubusers.adapter.AdapterUser
@@ -19,16 +21,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val rvUsers = findViewById<RecyclerView>(R.id.rv_users)
+        val edSearch = findViewById<EditText>(R.id.ed_search)
+        val btnSearch = findViewById<Button>(R.id.btn_search)
 
         rvUsers?.layoutManager = LinearLayoutManager(this)
         rvUsers?.setHasFixedSize(true)
 
-
-        fun getUsersList(){
+        fun getUsersList(username: String){
             val retrofitClient = NetworkUtils.getRetrofitInstance("https://api.github.com")
             val endpoint = retrofitClient.create(Endpoint::class.java)
 
-            endpoint.getUsers("mariana").enqueue(object : retrofit2.Callback<Users> {
+            endpoint.getUsers(username).enqueue(object : retrofit2.Callback<Users> {
                 override fun onResponse(call: Call<Users>, response: Response<Users>) {
 
                     val responseBody: Users? = response.body()
@@ -59,7 +62,12 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
-        getUsersList()
+        btnSearch.setOnClickListener {
+
+            if (edSearch.text.toString() != "")
+                getUsersList(edSearch.text.toString())
+        }
+
     }
 
 
