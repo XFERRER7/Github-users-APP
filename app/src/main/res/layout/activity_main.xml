@@ -12,7 +12,7 @@
         android:id="@+id/tv_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de usuários"
+        android:text="Usuários do Github"
         android:textSize="25dp"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
