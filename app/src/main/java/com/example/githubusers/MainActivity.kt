@@ -1,7 +1,9 @@
 package com.example.githubusers
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,13 +54,27 @@ class MainActivity : AppCompatActivity() {
 
                     rvUsers?.adapter = adapterUser
 
+                    adapterUser.clickUser =
+                        object : AdapterUser.ClickUser {
+                            override fun click(user: User) {
+
+                                val nameUser = user.login
+                                val photo = user.avatar_url
+
+                                val i = Intent(this@MainActivity, UserDetails::class.java)
+                                i.putExtra("name", nameUser)
+                                i.putExtra("photo", photo)
+                                startActivity(i)
+                            }
+                        }
+
 
 
 
                 }
 
                 override fun onFailure(call: Call<Users>, t: Throwable) {
-                    println("Não foi")
+                    println("Erro")
                 }
 
             })

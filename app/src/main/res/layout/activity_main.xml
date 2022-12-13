@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/white"
+    android:background="@color/black"
     >
 
     <TextView
@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="Usuários do Github"
         android:textSize="25dp"
-        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         />
@@ -33,7 +34,7 @@
             android:id="@+id/ed_search"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:hint="@string/digite_o_nome"
             android:background="@drawable/edittext_bottom_line"
             android:layout_height="wrap_content"

@@ -1,5 +1,6 @@
 package com.example.githubusers.api
 
+import com.example.githubusers.model.SearchedUser
 import com.example.githubusers.model.Users
 import com.google.gson.JsonObject
 import retrofit2.Call
@@ -13,21 +14,11 @@ interface Endpoint {
     fun getUsers(@Query("q") username : String) : Call<Users>
 
     @GET("/users/{username}")
-    fun getDetailUser(@Path(value = "username", encoded = true) username: String) : Call<JsonObject>
-
-    @GET("/users/{username}/followers")
-    fun getListFollower(@Path(value = "username", encoded = true) username: String) : Call<JsonObject>
-
-    @GET("/users/{username}/following")
-    fun getListFollowing(@Path(value = "username", encoded = true) username: String) : Call<JsonObject>
+    fun getDetailUser(@Path(value = "username", encoded = true) username: String) : Call<SearchedUser>
 
 }
 
 
 //Search : https://api.github.com/search/users?q={username}
-//
+
 //Detail user : https://api.github.com/users/{username}
-//
-//List Follower : https://api.github.com/users/{username}/followers
-//
-//List Following : https://api.github.com/users/{username}/following
